@@ -11,6 +11,15 @@ export interface HotelType {
     facilities: string[];
     pricePerNight: number;
     starRating: number;
-    imageUrls?: string[];
+    imageUrls: string[];
     lastUpdated: Date;
+};
+
+export type HotelSearchResponse = {
+    data: HotelType[];
+    pagination: {
+        total: number;
+        page: number;
+        pages: number;
+    }
 }
