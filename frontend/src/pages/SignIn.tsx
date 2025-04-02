@@ -31,6 +31,7 @@ const SignIn = () => {
             //2. navigate to the home page
         },
         onError: (error: Error)=> {
+            // On Error if unsuccessful
             showToast({ message: error.message, type: "ERROR" });
         }
     });

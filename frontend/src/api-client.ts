@@ -9,6 +9,7 @@ import {
 import { BookingFormData } from "./forms/BookingForm/BookingForm";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 
+// fetching the current user using the user id
 export const fetchCurrentUser = async (): Promise<UserType> => {
   const response = await fetch(`${API_BASE_URL}/api/users/me`, {
     credentials: "include",
@@ -53,6 +54,7 @@ export const signIn = async (formData: SignInFormData) => {
   return body;
 };
 
+// Token validation
 export const validateToken = async () => {
   const response = await fetch(`${API_BASE_URL}/api/auth/validate-token`, {
     credentials: "include",
@@ -76,6 +78,7 @@ export const signOut = async () => {
   }
 };
 
+//adding a hotel api
 export const addMyHotel = async (hotelFormData: FormData) => {
   const response = await fetch(`${API_BASE_URL}/api/my-hotels`, {
     method: "POST",
@@ -89,6 +92,8 @@ export const addMyHotel = async (hotelFormData: FormData) => {
 
   return response.json();
 };
+
+//finding hotel api creation
 
 export const fetchMyHotels = async (): Promise<HotelType[]> => {
   const response = await fetch(`${API_BASE_URL}/api/my-hotels`, {
@@ -114,6 +119,7 @@ export const fetchMyHotelById = async (hotelId: string): Promise<HotelType> => {
   return response.json();
 };
 
+// hotel update api creation
 export const updateMyHotelById = async (hotelFormData: FormData) => {
   const response = await fetch(
     `${API_BASE_URL}/api/my-hotels/${hotelFormData.get("hotelId")}`,
@@ -145,6 +151,7 @@ export type SearchParams = {
   sortOption?: string;
 };
 
+// Hotel searching api creation
 export const searchHotels = async (
   searchParams: SearchParams
 ): Promise<HotelSearchResponse> => {
@@ -214,7 +221,7 @@ export const createPaymentIntent = async (
     throw new Error("Error fetching payment intent");
   }
 
-  console.log(response)
+  console.log(response);
   return response.json();
 };
 

@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
 
+// Describes the componets 
 interface Props {
     children: React.ReactNode;
 }
@@ -21,4 +22,4 @@ const Layout = ({children}: Props) => {
     );
 };
 
-export default Layout
+export default Layout;

@@ -26,12 +26,12 @@ const Register = () => {
 
     const mutation = useMutation(apiClient.register, {
         onSuccess: async () => {
-            showToast({message: "Registration Successful!", type: "SUCCESS"});
+            showToast({ message: "Registration Successful!", type: "SUCCESS" });
             await queryClient.invalidateQueries("validateToken")
             navigate("/");
         },
         onError: (error: Error)=> {
-            showToast({ message: error.message, type:"ERROR"});
+            showToast({ message: error.message, type:"ERROR" });
         },
     });
 
@@ -44,7 +44,7 @@ const Register = () => {
             <h2 className="text-3xl font-bold">Create an Account</h2>
             <div className="flex flex-col md:flex-row gap-5">
                 <label className="text-gray-700 text-sm font-bold flex-1">
-                    First Name
+                    First Name 
                     <input className="border rounded w-full py-1 px-2 font-nomal" 
                     {...register("firstName",{required: "This field is required"})}></input>
                     {errors.firstName && (
